@@ -12,6 +12,8 @@ pipeline {
                     ]
                 ]) {
                     sh "aws s3 ls"
+                    sh "aws ec2 describe-volumes --output table"
+                    sh "aws ec2 describe-snapshots --owner-ids self --output json"
                 }
             }
         }
